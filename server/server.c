@@ -6,10 +6,25 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
+#include <string.h>
 
 #include "operations.h"
 
+int splitString(char* stringTab, char** returnTab);
+
 int main(int argc, char** argv) {
+	/*char** zxc = malloc(0);
+	zxc[0] = "add";
+	zxc[1] = "1";
+	zxc[2] = "3";
+	zxc[3] = "5";
+	
+	double temp[3];//] = malloc(0);;
+	parseDouble(zxc, temp, 4);//asc_sorting(splittedArray, size);
+	for(int i = 0; i<3; i++) {
+		printf("%f\n", temp[i]);
+	}
+	return 0;*/
 	if(argc != 2) {
 		puts("Invalid number of arguments");
 		exit(1);
@@ -52,6 +67,7 @@ int main(int argc, char** argv) {
 			puts("accept() error");
 			exit(1);
 		}
+
 		printf("Opened socket: %d\n", newsockfd);
 
 		pid = fork();
@@ -74,9 +90,17 @@ int main(int argc, char** argv) {
 					break;
 				}
 
-				printf("Message from socket %d: %s", newsockfd, buffer);
+				//printf("\tMessage from socket %d: %s\n", newsockfd, buffer);
+				char** splittedArray = malloc(0);
+				int size = splitString(buffer, splittedArray);
+				// for(int i = 0; i<size; i++) {
+				// 	printf("%s\n", splittedArray[i]);
+				// }
+				char* output = operation(splittedArray, size);
+				//puts(output);
+				free(splittedArray);
 
-				n = write(newsockfd, buffer, 255);
+				n = write(newsockfd, output, strlen(output));
 				if(n < 0) {
 					puts("write() error");
 					exit(1);
@@ -88,4 +112,23 @@ int main(int argc, char** argv) {
     }
 
 	return 0;
+}
+
+int splitString(char* stringTab, char** returnTab){
+	char* p = strtok(stringTab, " ");
+	int n_spaces = 0;
+
+	while(p) {
+		returnTab = realloc(returnTab, sizeof(char*) *++n_spaces);
+
+		if(returnTab == NULL) {
+			exit(1);
+		}
+		
+		returnTab[n_spaces-1] = p;
+
+		p = strtok (NULL, " ");
+	}
+
+	return n_spaces;
 }

@@ -20,17 +20,17 @@ Realizacja ćwiczenia:
 
         dla każdego z klientów serwer tworzy listę wiązaną, w której przechowuje kolejne wartości liczb całkowitych przesłane przez klienta;
 
-        na żądanie klienta serwer wykonuje jedną z operacji:
+        + na żądanie klienta serwer wykonuje jedną z operacji:
 
-            sumowanie przesłanych liczb
+            + sumowanie przesłanych liczb
 
-            odejmowanie przesłanych liczb
+            + odejmowanie przesłanych liczb
 
-            uszeregowanie rosnąco
+            + uszeregowanie rosnąco
 
-            uszeregowanie malejąco
+            + uszeregowanie malejąco
 
-        i wysyła odpowiedź do klienta;
+        + i wysyła odpowiedź do klienta;
 
         + po wysłaniu odpowiedzi serwer czeka na kolejne informacje od klienta
 
@@ -42,9 +42,9 @@ Realizacja ćwiczenia:
 
         + możliwość nawiązania połączenia TCP z serwerem
 
-        możliwość przesłania liczb wprowadzonych przez użytkownika do serwera
+        + możliwość przesłania liczb wprowadzonych przez użytkownika do serwera
 
-        możliwość żądania wykonania przez serwer jednej z podanych w punkcie 2.d operacji
+        + możliwość żądania wykonania przez serwer jednej z podanych w punkcie 2.d operacji
 
         + Wyświetlenie odebranego wyniku
 
