@@ -14,9 +14,9 @@ Realizacja ćwiczenia:
 
     Program serwera ma realizować następujące funkcje:
 
-        możliwość podania z linii poleceń portu, na, którym ma nasłuchiwać;
+        + możliwość podania z linii poleceń portu, na, którym ma nasłuchiwać;
 
-        możliwość obsługi wielu klientów jednocześnie poprzez wykorzystanie procesów potomnych;
+        + możliwość obsługi wielu klientów jednocześnie poprzez wykorzystanie procesów potomnych;
 
         dla każdego z klientów serwer tworzy listę wiązaną, w której przechowuje kolejne wartości liczb całkowitych przesłane przez klienta;
 
@@ -30,25 +30,25 @@ Realizacja ćwiczenia:
 
             uszeregowanie malejąco
 
-i wysyła odpowiedź do klienta;
+        i wysyła odpowiedź do klienta;
 
-        po wysłaniu odpowiedzi serwer czeka na kolejne informacje od klienta
+        + po wysłaniu odpowiedzi serwer czeka na kolejne informacje od klienta
 
-        po zakończeniu połączenia przez klienta proces obsługujący go powinien zostać zamknięty
+        + po zakończeniu połączenia przez klienta proces obsługujący go powinien zostać zamknięty
 
     Program klienta ma pozwalać na realizację następujących funkcji:
 
-        możliwość podania z linii poleceń adresu IP i portu, na którym nasłuchuje serwerem
+        + możliwość podania z linii poleceń adresu IP i portu, na którym nasłuchuje serwerem
 
-        możliwość nawiązania połączenia TCP z serwerem
+        + możliwość nawiązania połączenia TCP z serwerem
 
         możliwość przesłania liczb wprowadzonych przez użytkownika do serwera
 
         możliwość żądania wykonania przez serwer jednej z podanych w punkcie 2.d operacji
 
-        Wyświetlenie odebranego wyniku
+        + Wyświetlenie odebranego wyniku
 
-        możliwość podjęcia decyzji przez użytkownika o zakończeniu lub dalszym działaniu programu
+        + możliwość podjęcia decyzji przez użytkownika o zakończeniu lub dalszym działaniu programu
 
 Wymagania:
 

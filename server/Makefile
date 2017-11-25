@@ -1,8 +1,5 @@
-#hellomake: hellomake.c hellofunc.c
-#     gcc -o hellomake hellomake.c hellofunc.c -I.
-
-server: server.c
-	gcc -g -Wall -o server server.c -I.
+server: server.c operations.c
+	gcc -g -Wall -o server server.c operations.c
 
 clean: 
 	$(RM) server
