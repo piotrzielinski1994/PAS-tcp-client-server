@@ -1,0 +1,55 @@
+
+
+    Zadanie projektowe
+
+Celem zadania projektowego jest stworzenie klienta i wieloprocesowego serwera TCP.
+
+Przygotowanie do ćwiczenia:
+
+W ramach przygotowania do ćwiczenia należy zapoznać się ze sposobem tworzenia zarówno aplikacji klienckich jak i serwerów, opartych o protokół TCP, w języku C.
+
+Realizacja ćwiczenia:
+
+    Każdy ze studentów realizuje projekt samodzielnie.
+
+    Program serwera ma realizować następujące funkcje:
+
+        możliwość podania z linii poleceń portu, na, którym ma nasłuchiwać;
+
+        możliwość obsługi wielu klientów jednocześnie poprzez wykorzystanie procesów potomnych;
+
+        dla każdego z klientów serwer tworzy listę wiązaną, w której przechowuje kolejne wartości liczb całkowitych przesłane przez klienta;
+
+        na żądanie klienta serwer wykonuje jedną z operacji:
+
+            sumowanie przesłanych liczb
+
+            odejmowanie przesłanych liczb
+
+            uszeregowanie rosnąco
+
+            uszeregowanie malejąco
+
+i wysyła odpowiedź do klienta;
+
+        po wysłaniu odpowiedzi serwer czeka na kolejne informacje od klienta
+
+        po zakończeniu połączenia przez klienta proces obsługujący go powinien zostać zamknięty
+
+    Program klienta ma pozwalać na realizację następujących funkcji:
+
+        możliwość podania z linii poleceń adresu IP i portu, na którym nasłuchuje serwerem
+
+        możliwość nawiązania połączenia TCP z serwerem
+
+        możliwość przesłania liczb wprowadzonych przez użytkownika do serwera
+
+        możliwość żądania wykonania przez serwer jednej z podanych w punkcie 2.d operacji
+
+        Wyświetlenie odebranego wyniku
+
+        możliwość podjęcia decyzji przez użytkownika o zakończeniu lub dalszym działaniu programu
+
+Wymagania:
+
+    Historia prowadzenia i dokumentacja projektu powinna znajdować się na platformie github.com (lub innej obsługującej system kontroli wersji git).
