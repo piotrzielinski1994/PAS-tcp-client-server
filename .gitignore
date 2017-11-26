@@ -1,0 +1,3 @@
+*.o
+_requirements.txt
+testCommands.txt

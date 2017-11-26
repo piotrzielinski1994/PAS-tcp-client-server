@@ -8,6 +8,7 @@
 #include <netdb.h> 
 
 int main(int argc, char** argv) {
+	system("clear");
 	if(argc != 3) {
 		puts("Invalid number of arguments");
 		exit(1);
@@ -62,7 +63,7 @@ int main(int argc, char** argv) {
 			exit(1);
 		}
 
-		printf("%s",buffer);
+		printf("Result: %s\n",buffer);
 	}
 
 	return 0;

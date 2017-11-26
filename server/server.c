@@ -6,25 +6,11 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-#include <string.h>
 
 #include "operations.h"
 
-int splitString(char* stringTab, char** returnTab);
-
 int main(int argc, char** argv) {
-	/*char** zxc = malloc(0);
-	zxc[0] = "add";
-	zxc[1] = "1";
-	zxc[2] = "3";
-	zxc[3] = "5";
-	
-	double temp[3];//] = malloc(0);;
-	parseDouble(zxc, temp, 4);//asc_sorting(splittedArray, size);
-	for(int i = 0; i<3; i++) {
-		printf("%f\n", temp[i]);
-	}
-	return 0;*/
+	system("clear");
 	if(argc != 2) {
 		puts("Invalid number of arguments");
 		exit(1);
@@ -36,7 +22,6 @@ int main(int argc, char** argv) {
 	struct sockaddr_in serv_addr;
 	struct sockaddr_in cli_addr;
 	socklen_t clilen;
-	char buffer[256];
 	int n;
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -76,6 +61,7 @@ int main(int argc, char** argv) {
 			exit(1);
 		} else if(pid == 0) {
 			while(1) {
+				char buffer[256];
 				bzero(buffer, 256);
 
 				n = read(newsockfd, buffer, 255);
@@ -90,14 +76,13 @@ int main(int argc, char** argv) {
 					break;
 				}
 
-				//printf("\tMessage from socket %d: %s\n", newsockfd, buffer);
+				printf("\tMessage from socket %d: %s\n", newsockfd, buffer);
+
 				char** splittedArray = malloc(0);
 				int size = splitString(buffer, splittedArray);
-				// for(int i = 0; i<size; i++) {
-				// 	printf("%s\n", splittedArray[i]);
-				// }
-				char* output = operation(splittedArray, size);
-				//puts(output);
+
+				char* output=operation(splittedArray, size);
+
 				free(splittedArray);
 
 				n = write(newsockfd, output, strlen(output));
@@ -112,23 +97,4 @@ int main(int argc, char** argv) {
     }
 
 	return 0;
-}
-
-int splitString(char* stringTab, char** returnTab){
-	char* p = strtok(stringTab, " ");
-	int n_spaces = 0;
-
-	while(p) {
-		returnTab = realloc(returnTab, sizeof(char*) *++n_spaces);
-
-		if(returnTab == NULL) {
-			exit(1);
-		}
-		
-		returnTab[n_spaces-1] = p;
-
-		p = strtok (NULL, " ");
-	}
-
-	return n_spaces;
 }
