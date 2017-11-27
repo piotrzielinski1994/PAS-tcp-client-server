@@ -10,7 +10,10 @@
 	double substraction(struct node *header);
 	void ascSorting(struct node *header);
 	void descSorting(struct node *header);
-	int splitString(char* stringTab, char** returnTab);
+	//====================================================================
+	char** str_split(char* a_str, const char a_delim);
+	int getSize(char** tab);
+	//====================================================================
 	char* printList(struct node *header);
 	void insertFirst(double val, struct node *header);
 	void swap(struct node *a, struct node *b);

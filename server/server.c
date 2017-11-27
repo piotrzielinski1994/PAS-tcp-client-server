@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
 	struct sockaddr_in serv_addr;
 	struct sockaddr_in cli_addr;
 	socklen_t clilen;
+	char buffer[256];
 	int n;
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -61,7 +62,6 @@ int main(int argc, char** argv) {
 			exit(1);
 		} else if(pid == 0) {
 			while(1) {
-				char buffer[256];
 				bzero(buffer, 256);
 
 				n = read(newsockfd, buffer, 255);
@@ -76,14 +76,14 @@ int main(int argc, char** argv) {
 					break;
 				}
 
-				printf("\tMessage from socket %d: %s\n", newsockfd, buffer);
+				char** tempString = str_split(buffer, '\n');
+				char** splittedString = str_split(tempString[0], ' ');
+				free(tempString);
+				int size = getSize(splittedString);
+				
+				char* output=operation(splittedString, size);
 
-				char** splittedArray = malloc(0);
-				int size = splitString(buffer, splittedArray);
-
-				char* output=operation(splittedArray, size);
-
-				free(splittedArray);
+				free(splittedString);
 
 				n = write(newsockfd, output, strlen(output));
 				if(n < 0) {

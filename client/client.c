@@ -5,7 +5,9 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <netdb.h> 
+#include <netdb.h>
+
+#include "functions.h"
 
 int main(int argc, char** argv) {
 	system("clear");
@@ -48,6 +50,22 @@ int main(int argc, char** argv) {
 		printf("Please enter the message: ");
 		bzero(buffer,256);
 		fgets(buffer,255,stdin);
+
+		if(strstr(buffer, "  ") != NULL) {
+			puts("Bad arguments");
+			continue;
+		}
+
+		char** tempString = str_split(buffer, '\n');
+		char** splittedString = str_split(tempString[0], ' ');
+		free(tempString);
+		
+		if(checkString(splittedString)) {
+			puts("Bad arguments");
+			continue;
+		}
+
+		free(splittedString);
 
 		n = write(sockfd,buffer,strlen(buffer));
 		if(n < 0) {
